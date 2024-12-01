@@ -1,3 +1,7 @@
+layout: page
+title: "Solstad.dev"
+permalink: /about/contact
+
 # Hello world
 
 lorem ipsum dolor sit amet this is a test
