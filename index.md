@@ -1,10 +1,11 @@
-layout: page
-title: "Solstad.dev"
-permalink: /about/contact
+---
+layout: home
+title: "Hello"
+---
 
-# Hello world
+# {{page.title | downcase}} world
 
-lorem ipsum dolor sit amet this is a test
+lorem {{ "lorem" | capitalize }} ipsum dolor sit amet this is a test
 
 {% highlight c %}
 printf("hello world");
