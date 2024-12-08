@@ -1,13 +1,6 @@
 ---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
 layout: home
-title: "Hello"
 ---
-
-# {{page.title | downcase}} world
-
-lorem {{ "lorem" | capitalize }} ipsum dolor sit amet this is a test
-
-{% highlight c %}
-printf("hello world");
-/* prints hello world */
-{% endhighlight %}
