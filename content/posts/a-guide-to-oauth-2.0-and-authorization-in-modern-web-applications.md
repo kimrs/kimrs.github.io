@@ -1,6 +1,9 @@
----
-title: A Guide to OAuth 2.0 and Authorization in Modern Web Applications
----
++++
+date = '2020-10-24T06:42:25+01:00'
+draft = false
+title = 'A Guide to OAuth 2.0 and Authorization in Modern Web Applications'
+author = 'Kim Rune Solstad'
++++
 
 OAuth 2.0 is the leading protocol used for authorization on the internet. Authorization means specifying the privileges of someone/something accessing a resource. Before we had standard protocols for authorization, we had to trust applications with our password to share private resources. Authorizing access to your Facebook friends involved giving the application your password and trust that the app would use it for only its said purposes, then get rid of it. Sharing passwords was an unfavorable procedure for both the user and the app. Cautious users would have to perform due diligence on new apps they were using, and apps in need of some private information had to build sufficient trust to gain those users. Today, this is a lot easier. With authorization protocols, modern apps let trusted third parties handle the requests, and, for the users, sharing resources is a lot less daunting. 
 
