@@ -1,9 +1,10 @@
----
-layout: single
-author: Kim Rune Solstad
----
++++
+date = '2020-10-10T06:42:25+01:00'
+draft = false
+title = 'init'
+author = 'Kim Rune Solstad'
++++
 
-# init
 A recent goal of mine has been to write more. Usually, when I have spent my time learning things, it has involved either reading something or building something, never writing something. It is a sad reality because I have believed that writing promotes critical thinking ever since the early days of uni. Yet, it has taken me almost a decade to start this blog. But that is water under the bridge now, and I am happy to say that I have finally started. I intend for this blog to be a place to leave my notes on the subjects I'm learning. Teaching others is a great way to learn a topic because you expose your shortcomings regarding that topic. Identifying my deficiencies helps me remember where to focus. That should make me a better software developer. At least, that is the strategy I am going with. Apart from this, I believe everyone should adopt the habit of sharing their knowledge. In computer science, things change quickly, and posts, guides, and manuals rapidly become outdated.
 
 ## whoami
