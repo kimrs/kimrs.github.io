@@ -1,7 +1,8 @@
 +++
+title = 'init'
+featured_image = 'cover.jpg'
 date = '2020-10-10T06:42:25+01:00'
 draft = false
-title = 'init'
 author = 'Kim Rune Solstad'
 +++
 
