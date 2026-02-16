@@ -1,1 +1,49 @@
-This is my personal blog created using Hugo
+# kimrs.github.io
+
+Personal blog built with [Hugo](https://gohugo.io/) and the [Ananke](https://github.com/theNewDynamic/gohugo-theme-ananke) theme, deployed to GitHub Pages.
+
+## Prerequisites
+
+- [Hugo](https://gohugo.io/installation/) (extended edition, v0.137.1+)
+- Git
+
+## Running locally
+
+Clone the repo with submodules (the Ananke theme is a submodule):
+
+```bash
+git clone --recurse-submodules https://github.com/kimrs/kimrs.github.io.git
+cd kimrs.github.io
+```
+
+If you already cloned without `--recurse-submodules`:
+
+```bash
+git submodule update --init --recursive
+```
+
+Start the dev server:
+
+```bash
+hugo server -D
+```
+
+The site will be available at `http://localhost:1313/`. Changes to content and templates hot-reload automatically.
+
+## Creating a new post
+
+```bash
+hugo new posts/my-new-post/index.md
+```
+
+## Building for production
+
+```bash
+hugo --gc --minify
+```
+
+Output goes to `public/`.
+
+## Deployment
+
+Pushes to `master` trigger the GitHub Actions workflow (`.github/workflows/hugo.yaml`) which builds and deploys to GitHub Pages automatically.
