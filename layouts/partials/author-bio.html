@@ -1,0 +1,15 @@
+{{ with .Site.Params.author }}
+<div class="author-bio mt5 pt4 bt b--light-gray">
+  <div class="flex items-center">
+    {{ with $.Site.Params.author_image }}
+    <img src="{{ . }}" alt="{{ $.Site.Params.author }}" class="br-100 w3 h3 mr3">
+    {{ end }}
+    <div>
+      <p class="f5 fw6 mb1">{{ $.Site.Params.author }}</p>
+      {{ with $.Site.Params.author_bio }}
+      <p class="f6 lh-copy mid-gray mv0">{{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

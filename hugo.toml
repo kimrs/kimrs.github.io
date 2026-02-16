@@ -2,3 +2,8 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Kim Rune Solstad'
 theme = 'ananke'
+
+[params]
+  author = "Kim Rune Solstad"
+  author_bio = "Software consultant in Oslo specializing in backend development"
+  author_image = "/images/profile.jpg"

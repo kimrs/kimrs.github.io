@@ -1,7 +1,8 @@
 +++
+title = 'A Guide to OAuth 2.0 and Authorization in Modern Web Applications'
+featured_image = 'cover.png'
 date = '2020-10-24T06:42:25+01:00'
 draft = false
-title = 'A Guide to OAuth 2.0 and Authorization in Modern Web Applications'
 author = 'Kim Rune Solstad'
 +++
 
