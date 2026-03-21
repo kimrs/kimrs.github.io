@@ -1,0 +1,5 @@
+name = "Twill"
+description = "A warm, professional Hugo theme with Scandinavian-inspired design"
+author = "Kim Rune Solstad"
+min_version = "0.137.1"
+license = "MIT"

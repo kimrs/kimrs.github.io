@@ -1,0 +1,840 @@
+/* ==========================================================================
+   Twill Theme — style.css
+   Sections: 1. Fonts  2. Custom Properties  3. Reset  4. Typography  5. Layout
+             6. Header/Nav  7. Post Cards  8. Article  9. Tag Pills  10. Footer
+             11. 404  12. Accessibility  13. Transitions  14. Responsive
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Font Imports
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Bitter:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap');
+
+/* --------------------------------------------------------------------------
+   2. CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Light mode palette */
+  --color-dark-primary:   #1E3044;
+  --color-dark-secondary: #2D3E2A;
+  --color-mid-accent:     #4A5E3C;
+  --color-warm-accent:    #9B7340;
+  --color-light-accent:   #C9B896;
+  --color-background:     #F4F0E8;
+  --color-text:           #1E3044;
+
+  /* Code blocks */
+  --color-code-bg:        #1E3044;
+  --color-inline-code-bg: #E8E2D6;
+  --color-inline-code-fg: #1E3044;
+
+  /* Syntax highlighting */
+  --syn-keyword:   #2D3E2A;
+  --syn-string:    #9B7340;
+  --syn-comment:   #8A8A78;
+  --syn-function:  #1E3044;
+  --syn-number:    #6B5B3A;
+  --syn-operator:  #4A5E3C;
+  --syn-type:      #4A5E3C;
+
+  /* Derived / semantic */
+  --color-text-secondary: var(--color-mid-accent);
+  --color-text-tertiary:  #6B7B5C;
+  --color-border:         var(--color-light-accent);
+  --color-tag-bg:         #E8E2D6;
+  --color-tag-fg:         #4A5E3C;
+  --color-link:           var(--color-warm-accent);
+  --color-footer-bg:      #1E3044;
+  --color-footer-text:    #F4F0E8;
+
+  /* Header gradient */
+  --gradient-header: linear-gradient(135deg, #1E3044 0%, #2D3E2A 100%);
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body:    'Bitter', serif;
+  --font-code:    'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --content-width: 740px;
+}
+
+/* Dark mode — applied via data attribute or system preference */
+[data-theme="dark"] {
+    --color-background:     #1A1816;
+    --color-dark-primary:   #1A1816;
+    --color-dark-secondary: #242018;
+    --color-text:           #E0D8C8;
+    --color-text-secondary: #B8B0A0;
+    --color-text-tertiary:  #8A8070;
+    --color-mid-accent:     #7A9A6A;
+    --color-warm-accent:    #C49A5C;
+    --color-light-accent:   #302A22;
+    --color-border:         #302A22;
+    --color-tag-bg:         #2A2420;
+    --color-tag-fg:         #7A9A6A;
+    --color-link:           #C49A5C;
+    --color-footer-bg:      #0E0C0A;
+    --color-footer-text:    #E0D8C8;
+
+    /* Code blocks */
+    --color-code-bg:        #0E0C0A;
+    --color-inline-code-bg: #2A2420;
+    --color-inline-code-fg: #C49A5C;
+
+    /* Syntax highlighting */
+    --syn-keyword:   #8BA07A;
+    --syn-string:    #C49A5C;
+    --syn-comment:   #5A5548;
+    --syn-function:  #E0D8C8;
+    --syn-number:    #C49A5C;
+    --syn-operator:  #7A9A6A;
+    --syn-type:      #7A9A6A;
+
+    /* Header gradient */
+    --gradient-header: linear-gradient(135deg, #141210 0%, #121A14 100%);
+}
+
+/* Fallback: respect OS preference when no explicit choice is saved */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-background:     #1A1816;
+    --color-dark-primary:   #1A1816;
+    --color-dark-secondary: #242018;
+    --color-text:           #E0D8C8;
+    --color-text-secondary: #B8B0A0;
+    --color-text-tertiary:  #8A8070;
+    --color-mid-accent:     #7A9A6A;
+    --color-warm-accent:    #C49A5C;
+    --color-light-accent:   #302A22;
+    --color-border:         #302A22;
+    --color-tag-bg:         #2A2420;
+    --color-tag-fg:         #7A9A6A;
+    --color-link:           #C49A5C;
+    --color-footer-bg:      #0E0C0A;
+    --color-footer-text:    #E0D8C8;
+
+    /* Code blocks */
+    --color-code-bg:        #0E0C0A;
+    --color-inline-code-bg: #2A2420;
+    --color-inline-code-fg: #C49A5C;
+
+    /* Syntax highlighting */
+    --syn-keyword:   #8BA07A;
+    --syn-string:    #C49A5C;
+    --syn-comment:   #5A5548;
+    --syn-function:  #E0D8C8;
+    --syn-number:    #C49A5C;
+    --syn-operator:  #7A9A6A;
+    --syn-type:      #7A9A6A;
+
+    /* Header gradient */
+    --gradient-header: linear-gradient(135deg, #141210 0%, #121A14 100%);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Reset / Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, p, ul, ol, figure, blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:visited {
+  color: var(--color-link);
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-code);
+}
+
+/* --------------------------------------------------------------------------
+   5. Layout
+   -------------------------------------------------------------------------- */
+.content-wrap {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Header & Navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  background: var(--gradient-header);
+  padding: 0;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.nav-left .site-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #F4F0E8;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-left .site-name:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.nav-center {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #F4F0E8;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:visited {
+  color: #F4F0E8;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link.active {
+  opacity: 1;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-icon {
+  color: #F4F0E8;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-icon:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #F4F0E8;
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+/* Show sun icon in dark mode (click to go light) */
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+/* Show moon icon in light mode (click to go dark) */
+[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
+}
+[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+/* When no explicit theme is set, follow OS preference */
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+    display: block;
+  }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+    display: none;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Post Cards (homepage list)
+   -------------------------------------------------------------------------- */
+.post-card {
+  display: flex;
+  gap: 20px;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post-card:first-child {
+  padding-top: 0;
+}
+
+.post-card:last-child {
+  border-bottom: none;
+}
+
+.post-card-date {
+  width: 60px;
+  min-width: 60px;
+  text-align: right;
+  padding-top: 0.25rem;
+}
+
+.post-card-month {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.post-card-year {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--color-text-tertiary);
+  line-height: 1.3;
+}
+
+.post-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 6px;
+}
+
+.post-card-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.post-card-title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.post-card-title a:hover {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.post-card-title a:visited {
+  color: var(--color-text);
+}
+
+.post-card-date-inline {
+  display: none;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--color-text-tertiary);
+  margin-top: 0.25rem;
+}
+
+.post-card-excerpt {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+.post-card-image {
+  width: 140px;
+  min-width: 140px;
+  align-self: center;
+}
+
+.post-card-image a {
+  display: block;
+}
+
+.post-card-image a:hover {
+  text-decoration: none;
+}
+
+.post-card-image img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   8. Article Content (prose, blockquotes, code, tables, images)
+   -------------------------------------------------------------------------- */
+.article-featured-image {
+  margin-bottom: 2rem;
+}
+
+.article-featured-image img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.article-header {
+  margin-bottom: 2rem;
+}
+
+.article-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.article-header time {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-text-tertiary);
+}
+
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Code blocks */
+.article-content pre {
+  background: var(--color-code-bg);
+  border-radius: 6px;
+  padding: 20px 22px;
+  margin: 2rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-content pre code {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #E0D8C8;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Inline code */
+.article-content code {
+  font-family: var(--font-code);
+  font-size: 0.875rem;
+  background: var(--color-inline-code-bg);
+  color: var(--color-inline-code-fg);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* Blockquotes */
+.article-content blockquote {
+  border-left: 3px solid var(--color-border);
+  padding: 0 0 0 1.25rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tables */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-content thead {
+  display: table-header-group;
+}
+
+.article-content tbody {
+  display: table-row-group;
+}
+
+.article-content tr {
+  display: table-row;
+}
+
+.article-content th,
+.article-content td {
+  display: table-cell;
+}
+
+.article-content th {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.article-content td {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Images */
+.article-content img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 2rem 0;
+}
+
+.article-content figure {
+  margin: 2rem 0;
+}
+
+.article-content figure img {
+  margin: 0;
+}
+
+.article-content figcaption {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Links within articles */
+.article-content a:active {
+  filter: brightness(0.9);
+}
+
+/* Lists */
+.article-content ul,
+.article-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.article-content li {
+  margin-bottom: 0.35rem;
+}
+
+/* Horizontal rules */
+.article-content hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   9. Tag Pills
+   -------------------------------------------------------------------------- */
+.tag-pill {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 3px;
+  background: var(--color-tag-bg);
+  color: var(--color-tag-fg);
+}
+
+/* --------------------------------------------------------------------------
+   10. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.25rem;
+}
+
+.footer-top-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footer-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.footer-role {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.78rem;
+  opacity: 0.5;
+}
+
+.footer-top-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-top-right .social-icon {
+  color: var(--color-footer-text);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.footer-copyright,
+.footer-credit {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  opacity: 0.35;
+}
+
+/* --------------------------------------------------------------------------
+   11. 404 Page
+   -------------------------------------------------------------------------- */
+.page-404 {
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.page-404 h1 {
+  margin-bottom: 1rem;
+}
+
+.page-404 p {
+  color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   12. Accessibility
+   -------------------------------------------------------------------------- */
+a:focus,
+button:focus,
+.nav-link:focus,
+.social-icon:focus {
+  outline: 2px solid var(--color-warm-accent);
+  outline-offset: 2px;
+}
+
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--color-warm-accent);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   13. Transitions
+   -------------------------------------------------------------------------- */
+a {
+  transition: color 0.2s ease;
+}
+
+.tag-pill {
+  transition: opacity 0.2s ease;
+}
+
+.tag-pill:hover {
+  opacity: 0.8;
+}
+
+/* --------------------------------------------------------------------------
+   14. Responsive (<768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  /* Font sizes */
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  /* Layout spacing */
+  .content-wrap {
+    padding: 0 1.25rem;
+  }
+
+  .site-nav {
+    padding: 1rem 1.25rem;
+  }
+
+  .footer-inner {
+    padding: 2rem 1.25rem;
+  }
+
+  /* Hide social icons on mobile */
+  .nav-right .social-icon {
+    display: none;
+  }
+
+  /* Post cards: hide date column, show inline date */
+  .post-card-date {
+    display: none;
+  }
+
+  .post-card-date-inline {
+    display: block;
+  }
+
+  /* Post card image: smaller on mobile */
+  .post-card-image {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .post-card-image img {
+    height: 70px;
+  }
+
+}

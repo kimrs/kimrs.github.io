@@ -1,9 +1,20 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://solstad.dev/'
 languageCode = 'en-us'
 title = 'Kim Rune Solstad'
-theme = 'ananke'
+theme = 'twill'
+
+[menu]
+  [[menu.main]]
+    name = 'Posts'
+    url = '/posts/'
+    weight = 1
+  [[menu.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 2
 
 [params]
-  author = "Kim Rune Solstad"
-  author_bio = "Software consultant in Oslo specializing in backend development"
-  author_image = "/images/profile.jpg"
+  [params.social]
+    github = 'https://github.com/kimrs'
+    linkedin = 'https://www.linkedin.com/in/kim-rune-solstad-707a4a39/'
+    youtube = 'https://www.youtube.com/@KimRuneSolstad'
