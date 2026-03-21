@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Reveal.js Twill Theme — reveal-twill.css
+   Dark-mode presentation theme matching the Twill site brand.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  --rt-bg:             #1A1816;
+  --rt-surface:        #242018;
+  --rt-border:         #302A22;
+  --rt-text-primary:   #E0D8C8;
+  --rt-text-secondary: #B8B0A0;
+  --rt-text-tertiary:  #8A8070;
+  --rt-accent:         #C49A5C;
+  --rt-accent-alt:     #7A9A6A;
+  --rt-code-bg:        #0E0C0A;
+  --rt-gradient-start: #141210;
+  --rt-gradient-end:   #121A14;
+}
+
+/* --------------------------------------------------------------------------
+   2. Global Reveal overrides
+   -------------------------------------------------------------------------- */
+.reveal-viewport {
+  background: var(--rt-bg);
+}
+
+.reveal {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--rt-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   3. Slides — layout
+   -------------------------------------------------------------------------- */
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  padding: 60px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.reveal .slides section > * {
+  max-width: 900px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography
+   -------------------------------------------------------------------------- */
+
+/* Slide titles (h1) */
+.reveal h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--rt-text-primary);
+  margin-bottom: 0.8em;
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+/* Section headings (h2) */
+.reveal h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--rt-text-primary);
+  margin-bottom: 0.6em;
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+/* h3–h6 */
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  color: var(--rt-text-primary);
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+.reveal p {
+  line-height: 1.6;
+  margin-bottom: 0.6em;
+}
+
+/* --------------------------------------------------------------------------
+   5. Links
+   -------------------------------------------------------------------------- */
+.reveal a {
+  color: var(--rt-accent);
+  text-decoration: none;
+}
+
+.reveal a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   6. Bullet points
+   -------------------------------------------------------------------------- */
+.reveal ul,
+.reveal ol {
+  margin-left: 1em;
+}
+
+.reveal li {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+  color: var(--rt-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   7. Code blocks
+   -------------------------------------------------------------------------- */
+.reveal pre {
+  background: var(--rt-code-bg);
+  border-radius: 6px;
+  padding: 20px 22px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+
+.reveal pre code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  padding: 0;
+  background: none;
+  max-height: none;
+}
+
+/* Inline code */
+.reveal code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  background: var(--rt-surface);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+.reveal pre code {
+  background: none;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Blockquotes
+   -------------------------------------------------------------------------- */
+.reveal blockquote {
+  border-left: 3px solid var(--rt-border);
+  padding-left: 1.25rem;
+  margin: 1em 0;
+  background: none;
+  box-shadow: none;
+  font-style: italic;
+  color: var(--rt-text-secondary);
+  width: auto;
+}
+
+.reveal blockquote p {
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   9. Images
+   -------------------------------------------------------------------------- */
+.reveal section img {
+  max-width: 100%;
+  border-radius: 6px;
+  border: none;
+  box-shadow: none;
+  display: block;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   10. Divider slides
+   -------------------------------------------------------------------------- */
+.reveal .slides section[data-background-gradient] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.reveal .slides section[data-background-gradient] h1 {
+  font-size: 2.8rem;
+  max-width: none;
+}
+
+.reveal .slides section[data-background-gradient] p {
+  font-size: 1.2rem;
+  color: var(--rt-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   11. Slide numbers
+   -------------------------------------------------------------------------- */
+.reveal .slide-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  color: var(--rt-text-tertiary);
+  background: none;
+  right: 16px;
+  bottom: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   12. Tables
+   -------------------------------------------------------------------------- */
+.reveal table {
+  border-collapse: collapse;
+}
+
+.reveal table th {
+  font-weight: 600;
+  color: var(--rt-text-primary);
+  border-bottom: 2px solid var(--rt-border);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+
+.reveal table td {
+  border-bottom: 1px solid var(--rt-border);
+  padding: 0.5em 0.75em;
+  color: var(--rt-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   13. Progress bar
+   -------------------------------------------------------------------------- */
+.reveal .progress {
+  color: var(--rt-accent);
+  height: 3px;
+}

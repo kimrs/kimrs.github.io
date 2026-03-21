@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="content-wrap">
+  <header class="article-header">
+    {{ with .Params.tags }}
+    <div class="article-tags">
+      {{ range . }}
+      <span class="tag-pill">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+  </header>
+  {{ with .Params.featured_image }}
+    {{ $img := $.Resources.GetMatch . }}
+    {{ with $img }}
+    <div class="article-featured-image">
+      <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+    </div>
+    {{ end }}
+  {{ end }}
+  <div class="article-content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

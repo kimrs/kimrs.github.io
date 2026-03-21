@@ -1,0 +1,32 @@
+<article class="post-card">
+  <div class="post-card-date" aria-hidden="true">
+    <span class="post-card-month">{{ .Date.Format "Jan" }}</span>
+    <span class="post-card-year">{{ .Date.Format "2006" }}</span>
+  </div>
+  <div class="post-card-content">
+    {{ with .Params.tags }}
+    <div class="post-card-tags">
+      {{ range . }}
+      <span class="tag-pill">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+    <h2 class="post-card-title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+    <time class="post-card-date-inline" datetime="{{ .Date.Format "2006-01-02" }}">
+      {{ .Date.Format "Jan 2006" }}
+    </time>
+    <p class="post-card-excerpt">{{ .Summary | plainify | truncate 160 }}</p>
+  </div>
+  {{ with .Params.featured_image }}
+    {{ $img := $.Resources.GetMatch . }}
+    {{ with $img }}
+    <div class="post-card-image">
+      <a href="{{ $.Permalink }}">
+        <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+      </a>
+    </div>
+    {{ end }}
+  {{ end }}
+</article>
