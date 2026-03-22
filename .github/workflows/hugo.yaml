@@ -47,7 +47,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "https://kimrs.github.io/"
+            --baseURL "https://solstad.dev/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
