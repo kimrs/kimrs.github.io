@@ -28,6 +28,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   vim \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install Chromium dependencies for headless screenshots (Puppeteer)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
+  libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
+  libpango-1.0-0 libcairo2 libasound2 libnspr4 libxfixes3 \
+  libdbus-1-3 libatspi2.0-0 \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Install Hugo extended edition
 RUN ARCH=$(dpkg --print-architecture) && \
   wget "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-${ARCH}.deb" && \

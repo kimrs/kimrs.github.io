@@ -22,5 +22,8 @@
   <div class="article-content">
     {{ .Content }}
   </div>
+  {{ if eq .Section "posts" }}
+    {{ partial "author-card.html" . }}
+  {{ end }}
 </article>
 {{ end }}

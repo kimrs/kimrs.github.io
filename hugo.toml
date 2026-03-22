@@ -14,6 +14,10 @@ theme = 'twill'
     weight = 2
 
 [params]
+  [params.author]
+    name = 'Kim Rune Solstad'
+    role = 'Software Development Consultant'
+    bio = 'Consultant and developer sharing thoughts on software engineering, architecture, and technology.'
   [params.social]
     github = 'https://github.com/kimrs'
     linkedin = 'https://www.linkedin.com/in/kim-rune-solstad-707a4a39/'

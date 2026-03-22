@@ -2,8 +2,15 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-top-left">
-        <span class="footer-name">{{ .Site.Title }}</span>
-        <span class="footer-role">Software Development Consultant</span>
+        {{ $img := resources.Get "author-bw.jpg" }}
+        {{ with $img }}
+          {{ $avatar := .Fill "96x96 Center" }}
+          <img class="footer-avatar" src="{{ $avatar.RelPermalink }}" alt="{{ $.Site.Title }}" width="48" height="48" loading="lazy">
+        {{ end }}
+        <div class="footer-identity">
+          <span class="footer-name">{{ .Site.Title }}</span>
+          <span class="footer-role">Software Development Consultant</span>
+        </div>
       </div>
       <div class="footer-top-right">
         {{ with .Site.Params.social }}

@@ -47,7 +47,7 @@
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "git submodule update --init --recursive",
+  "postCreateCommand": "git config --global --add safe.directory /workspace && git submodule update --init --recursive",
   "postStartCommand": "sudo /usr/local/bin/init-firewall.sh",
   "waitFor": "postStartCommand",
   "forwardPorts": [1313]
