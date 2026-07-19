@@ -46,4 +46,6 @@ Output goes to `public/`.
 
 ## Deployment
 
-Pushes to `master` trigger the GitHub Actions workflow (`.github/workflows/hugo.yaml`) which builds and deploys to GitHub Pages automatically.
+Pushes to `master` trigger the GitHub Actions workflow (`.github/workflows/hugo.yaml`) which builds and deploys straight to production at **https://solstad.dev/** — the custom domain of this user site. There is no separate test deployment; preview locally with `hugo server` before pushing.
+
+Because the domain sits on the user site, every other repo with Pages enabled publishes under `solstad.dev/<repo-name>/` (e.g. the talk decks).
